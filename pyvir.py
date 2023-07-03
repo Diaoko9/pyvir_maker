@@ -9,20 +9,23 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from display import print_items
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(300, 300)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.listView = QtWidgets.QListView(self.centralwidget)
-        self.listView.setGeometry(QtCore.QRect(100, 80, 451, 251))
-        self.listView.setObjectName("listView")
+        
+        self.listWidget = QtWidgets.QListWidget(self.centralwidget)
+        self.listWidget.setGeometry(QtCore.QRect(40, 40, 200, 200))
+        self.listWidget.setObjectName("listWidget")
+        self.listWidget.addItem(print_items())
+        
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 23))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 300, 23))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -36,7 +39,7 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
 
-
+'''
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
@@ -45,3 +48,4 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
+'''
