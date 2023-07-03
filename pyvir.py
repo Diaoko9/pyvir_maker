@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from display import print_items
+from display import q1
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -21,7 +21,7 @@ class Ui_MainWindow(object):
         self.listWidget = QtWidgets.QListWidget(self.centralwidget)
         self.listWidget.setGeometry(QtCore.QRect(40, 40, 200, 200))
         self.listWidget.setObjectName("listWidget")
-        self.listWidget.addItem(print_items())
+        self.listWidget.addItems(q1[0:])
         
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
