@@ -10,22 +10,57 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from display import q1
+import venv
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(300, 300)
+        MainWindow.resize(543, 317)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+        self.frame = QtWidgets.QFrame(self.centralwidget)
+        self.frame.setGeometry(QtCore.QRect(20, 10, 231, 251))
+        self.frame.setFrameShape(QtWidgets.QFrame.Box)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.label = QtWidgets.QLabel(self.frame)
+        self.label.setGeometry(QtCore.QRect(10, 10, 161, 18))
+        self.label.setObjectName("label")
         
-        self.listWidget = QtWidgets.QListWidget(self.centralwidget)
-        self.listWidget.setGeometry(QtCore.QRect(40, 40, 200, 200))
+        #Display envs
+        self.listWidget = QtWidgets.QListWidget(self.frame)
+        self.listWidget.setGeometry(QtCore.QRect(10, 40, 200, 200))
         self.listWidget.setObjectName("listWidget")
         self.listWidget.addItems(q1[0:])
         
+        self.frame_2 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_2.setGeometry(QtCore.QRect(290, 10, 231, 251))
+        self.frame_2.setFrameShape(QtWidgets.QFrame.Box)
+        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_2.setObjectName("frame_2")
+        self.label_2 = QtWidgets.QLabel(self.frame_2)
+        self.label_2.setGeometry(QtCore.QRect(10, 10, 181, 18))
+        self.label_2.setObjectName("label_2")
+        
+        #get env name here
+        self.lineEdit = QtWidgets.QLineEdit(self.frame_2)
+        self.lineEdit.setGeometry(QtCore.QRect(10, 30, 201, 31))
+        self.lineEdit.setObjectName("lineEdit")
+        env_name = self.lineEdit.text()
+        
+        
+
+        #virenv makes here
+        self.pushButton = QtWidgets.QPushButton(self.frame_2)
+        self.pushButton.setGeometry(QtCore.QRect(60, 190, 111, 41))
+        self.pushButton.setObjectName("pushButton")
+        self.pushButton.clicked.connect(env_name = venv.create("/home/diaoko/venv/"+str(env_name)))
+        
+    
+        
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 300, 23))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 543, 23))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -38,7 +73,13 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-
+        self.label.setText(_translate("MainWindow", "Virtual Environments"))
+        self.label_2.setText(_translate("MainWindow", "Make Virtual envs Here"))
+        self.pushButton.setText(_translate("MainWindow", "Make it!"))
+'''
+    def vir_creator():
+        env_name = venv.create("/home/diaoko/venv/"+str(env_name))
+'''
 '''
 if __name__ == "__main__":
     import sys

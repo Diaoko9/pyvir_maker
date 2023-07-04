@@ -1,6 +1,6 @@
 import os
 import os.path
-import sys
+from pyvir import Ui_MainWindow
 import venv
   
 
@@ -13,8 +13,10 @@ def create(self, env_dir):
     self.setup_scripts(context)
     self.post_setup(context)
 '''
-test = venv.EnvBuilder(system_site_packages=True, clear=True, upgrade=True, with_pip= True,
+venv_builder = venv.EnvBuilder(system_site_packages=True, clear=True, upgrade=True, with_pip= True,
                        upgrade_deps=True)
 
-test = venv.create("/home/diaoko/venv/test")
+
+
+env_name = venv.create("/home/diaoko/venv/"+env_name)
 
