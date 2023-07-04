@@ -54,7 +54,7 @@ class Ui_MainWindow(object):
         self.pushButton = QtWidgets.QPushButton(self.frame_2)
         self.pushButton.setGeometry(QtCore.QRect(60, 190, 111, 41))
         self.pushButton.setObjectName("pushButton")
-        self.pushButton.clicked.connect(env_name = venv.create("/home/diaoko/venv/"+str(env_name)))
+        #self.pushButton.clicked.connect(env_name = venv.create("/home/diaoko/venv/"+str(env_name)))
         
     
         
