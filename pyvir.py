@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from display import q1
-import venv
+import venv, os
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -46,7 +46,7 @@ class Ui_MainWindow(object):
         self.lineEdit = QtWidgets.QLineEdit(self.frame_2)
         self.lineEdit.setGeometry(QtCore.QRect(10, 30, 201, 31))
         self.lineEdit.setObjectName("lineEdit")
-        env_name = self.lineEdit.text()
+        #self.env_name = self.lineEdit.text()
         
         
 
@@ -54,9 +54,9 @@ class Ui_MainWindow(object):
         self.pushButton = QtWidgets.QPushButton(self.frame_2)
         self.pushButton.setGeometry(QtCore.QRect(60, 190, 111, 41))
         self.pushButton.setObjectName("pushButton")
-        #self.pushButton.clicked.connect(env_name = venv.create("/home/diaoko/venv/"+str(env_name)))
+        self.pushButton.clicked.connect(self.create_venv)
         
-    
+
         
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -76,10 +76,16 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "Virtual Environments"))
         self.label_2.setText(_translate("MainWindow", "Make Virtual envs Here"))
         self.pushButton.setText(_translate("MainWindow", "Make it!"))
-'''
-    def vir_creator():
-        env_name = venv.create("/home/diaoko/venv/"+str(env_name))
-'''
+
+    def create_venv(self):
+        
+        os.chdir('/home/diaoko/venv')
+
+        try:    
+            #venv.create("/home/diaoko/venv/"+(str(self.env_name)))
+            venv.create("/home/diaoko/venv/"+(str(self.lineEdit.text())))
+        except FileExistsError:
+            pass
 '''
 if __name__ == "__main__":
     import sys

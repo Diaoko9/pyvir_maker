@@ -15,8 +15,7 @@ def create(self, env_dir):
 '''
 venv_builder = venv.EnvBuilder(system_site_packages=True, clear=True, upgrade=True, with_pip= True,
                        upgrade_deps=True)
+#a = zxy
 
-
-
-env_name = venv.create("/home/diaoko/venv/"+env_name)
-
+#env_name = venv.create("/home/diaoko/venv/"+'abc')
+print("/home/diaoko/venv/"+str(1))
